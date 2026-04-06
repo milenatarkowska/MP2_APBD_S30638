@@ -100,7 +100,10 @@ public sealed class ZadaniaLinq
     /// </summary>
     public IEnumerable<string> Zadanie05_CzyIstniejeNieaktywneZapisanie()
     {
-        throw Niezaimplementowano(nameof(Zadanie05_CzyIstniejeNieaktywneZapisanie));
+        var result = DaneUczelni.Zapisy
+            .Any(zapis => !zapis.CzyAktywny);
+        return new List<string>{result ? "True" : "False"};
+        //throw Niezaimplementowano(nameof(Zadanie05_CzyIstniejeNieaktywneZapisanie));
     }
 
     /// <summary>
