@@ -54,7 +54,12 @@ public sealed class ZadaniaLinq
     /// </summary>
     public IEnumerable<string> Zadanie03_StudenciPosortowani()
     {
-        throw Niezaimplementowano(nameof(Zadanie03_StudenciPosortowani));
+        var result = DaneUczelni.Studenci
+            .OrderBy(student => student.Nazwisko)
+            .ThenBy(student => student.Imie)
+            .Select(student => $"{student.NumerIndeksu} {student.Imie} {student.Nazwisko}");
+        return result;
+        // throw Niezaimplementowano(nameof(Zadanie03_StudenciPosortowani));
     }
 
     /// <summary>
