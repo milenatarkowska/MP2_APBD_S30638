@@ -1,6 +1,6 @@
 using LinqConsoleLab.PL.Data;
 
-namespace LinqConsoleLab.PL.Exercises;
+namespace MP2_APBD_S30638.Exercises;
 
 public sealed class ZadaniaLinq
 {
@@ -16,7 +16,13 @@ public sealed class ZadaniaLinq
     /// </summary>
     public IEnumerable<string> Zadanie01_StudenciZWarszawy()
     {
-        throw Niezaimplementowano(nameof(Zadanie01_StudenciZWarszawy));
+        var result = DaneUczelni.Studenci
+                .Where(student => student.Miasto == "Warsaw")
+                .Select(student => $"{student.NumerIndeksu} {student.Imie} {student.Nazwisko} {student.Miasto}");
+            
+        return result;
+        
+        // throw Niezaimplementowano(nameof(Zadanie01_StudenciZWarszawy));
     }
 
     /// <summary>
